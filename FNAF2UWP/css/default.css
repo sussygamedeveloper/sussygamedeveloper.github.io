@@ -1,0 +1,197 @@
+﻿body {
+    color:#000000;
+    background-color:#000000;
+    touch-action: none;
+}
+
+#FusionCanvas {
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+/* allow pointer events on all children of container elements */
+.fusionContainer * {
+    pointer-events:auto;
+}
+
+/* block pointer events on container elements */
+.fusionContainer {
+    pointer-events:none;
+    overflow:hidden;
+}
+
+/* kc button */
+.fusionRunControlKcButton {
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.fusionRunControlKcButtonDisabled, .fusionRunControlKcButtonDisabled * {
+    pointer-events:none;
+}
+
+/* normal button */
+.fusionRunControlKcButtonPushText {
+    text-align:center;
+}
+
+/* push bitmap button */
+.fusionRunControlKcButtonPushTextBitmapLabel {
+    display:inline-block;
+}
+
+.fusionRunControlKcButtonPushTextBitmapSpacer {
+    display:inline-block;
+    clear:both;
+}
+
+.fusionRunControlKcButtonPushTextBitmapImage {
+    display:inline-block;
+}
+
+.fusionRunControlKcButtonPushTextBitmapImageLeft .fusionRunControlKcButtonPushTextBitmapImage {
+    margin-right:0.6em;
+    vertical-align:middle;
+}
+
+.fusionRunControlKcButtonPushTextBitmapImageRight .fusionRunControlKcButtonPushTextBitmapImage {
+    margin-left:0.6em;
+    vertical-align:middle;
+}
+
+/* checkbox */
+.fusionRunControlKcButtonCheckbox {
+    position:relative;
+    top:0px;
+    left:0px;
+}
+
+    .fusionRunControlKcButtonCheckboxLabelContainer {
+        display:table-cell;
+        vertical-align:middle;
+        position:relative;
+        top:0px;
+        left:0px;
+    }
+
+    .fusionRunControlKcButtonCheckboxLabel {
+        z-index:1;
+        margin:0px;
+        padding:0px;
+    }
+
+    .fusionRunControlKcButtonCheckboxInput {
+        margin:0px;
+        padding:0px;
+    }
+
+    .fusionRunControlKcButtonCheckboxInputContainer {
+        z-index:2;
+    }
+
+    /* checkbox on left */
+    .fusionRunControlKcButtonCheckboxAlignLeft .fusionRunControlKcButtonCheckboxLabel {
+        vertical-align:middle;
+    }
+
+    .fusionRunControlKcButtonCheckboxAlignLeft .fusionRunControlKcButtonCheckboxInputContainer {
+        display:inline-block;
+        padding-right:0.3em;
+    }
+
+        .fusionRunControlKcButtonCheckboxAlignLeft .fusionRunControlKcButtonCheckboxInput {
+            display:inline-block;
+            vertical-align:middle;
+        }
+
+    /* checkbox on right */
+    .fusionRunControlKcButtonCheckboxAlignRight .fusionRunControlKcButtonCheckboxInputContainer {
+        display:block;
+        position:absolute;
+        top:-1px;
+        right:1px;
+        vertical-align:middle;
+    }
+
+        .fusionRunControlKcButtonCheckboxAlignRight .fusionRunControlKcButtonCheckboxInput {
+            vertical-align:middle;
+        }
+
+    .fusionRunControlKcButtonCheckboxAlignRight .fusionRunControlKcButtonCheckboxLabel {
+        display:block;
+        position:absolute;
+        top:0px;
+        left:0px;
+    }
+
+/*radio button*/
+.fusionRunControlKcButtonRadio {
+    position:relative;
+    top:0px;
+    left:0px;
+}
+
+    .fusionRunControlKcButtonRadioContainer {
+        display:block;
+        position:relative;
+        left:0px;
+        top:0px;
+    }
+
+        .fusionRunControlKcButtonRadioLabelContainer {
+            display:table-cell;
+            vertical-align:middle;
+            position:relative;
+            top:0px;
+            left:0px;
+        }
+
+        .fusionRunControlKcButtonRadioLabel {
+            z-index:1;
+            margin:0px;
+            padding:0px;
+        }
+
+        .fusionRunControlKcButtonRadioInput {
+            margin:0px;
+            padding:0px;
+        }
+
+        .fusionRunControlKcButtonRadioInputContainer {
+            z-index:2;
+        }
+
+        /* radio on left */
+        .fusionRunControlKcButtonRadioAlignLeft .fusionRunControlKcButtonRadioLabel {
+            vertical-align:middle;
+        }
+
+        .fusionRunControlKcButtonRadioAlignLeft .fusionRunControlKcButtonRadioInputContainer {
+            display:inline-block;
+            padding-right:0.3em;
+        }
+
+            .fusionRunControlKcButtonRadioAlignLeft .fusionRunControlKcButtonRadioInput {
+                display:inline-block;
+                vertical-align:middle;
+            }
+
+        /* radio on right */
+        .fusionRunControlKcButtonRadioAlignRight .fusionRunControlKcButtonRadioInputContainer {
+            display:block;
+            position:absolute;
+            top:0px;
+            right:1px;
+        }
+
+            .fusionRunControlKcButtonRadioAlignRight .fusionRunControlKcButtonRadioInput {
+                vertical-align:middle;
+            }
+
+        .fusionRunControlKcButtonRadioAlignRight .fusionRunControlKcButtonRadioLabel {
+            display:block;
+            position:absolute;
+            top:0px;
+            left:0px;
+        }
