@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAG1BMVEUAAAB5YChoUyJcqhNJiA9DNRR/0zKW2lbA/YaI9AD0AAAAAXRSTlMAQObYZgAAAFhJREFUeAFjAANGIQEQxWwSyhAAYpilOIAZzOllyUAKxEhLATPY2tNMIIwyIAMik2wAFkiDMJjTgAwHEKMMymAvsyiHMJLNy1LAUslpUPNMzKDmMbi4gGQAMDkUUt8TBFsAAAAASUVORK5CYII=" sizes="16x16">
+		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEUAAAB5YChoUyJDNRQuIghcqhNJiA9/0zLA/YaW2lYFDAG9AAAAAXRSTlMAQObYZgAAAJVJREFUeAFioAwICgmg8JmVnRUBtc6xDcMwDARAplDmSTxCJnBD0enSWBsIb42QAQKC20ZIEb/cm90fiMdT1DzdZKKMXETuOyzxsVke/5y2QJ3lQuCoL6q0DjrA+wgBZILUHJXBAh3oAT6CAQMk/KDs4AdYAgie8fS6hTNAm/MugzVgmGEYQHQFKkNaVamz37WUIifeF86POf2nf9U8AAAAAElFTkSuQmCC" sizes="32x32">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>WolkenWelten Pre-Alpha</title>
+		<style>
+			html,body { overflow:hidden; }
+			.emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+			textarea.emscripten { font-family: monospace; width: 80%; }
+			div.emscripten { text-align: center; }
+			div.emscripten_border { border: none; }
+			canvas.emscripten { border: 0px none; background-color: black; }
+			body,html { background: black; padding: 0px; margin: 0px; border: none;}
+		</style>
+	</head>
+	<body>
+		<canvas class="emscripten" id="canvas"></canvas>
+		<script type='text/javascript'>
+			window.addEventListener('unload', () => {
+				navigator.sendBeacon('/wolkenwelten-quit-dev-server',{});
+			});
+			var args = window.location.search+'';
+			if(args.charAt(0) == '?'){
+				args = args.substr(1);
+			}
+			args = args.split('&');
+			for(var i=0;i<args.length;i++){
+				args[i] = '-'+args[i];
+			}
+
+			var Module = {
+				arguments: args,
+				preRun: [],
+				postRun: [],
+				print: (function() {
+					return function(text) {
+						if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+						console.log(text);
+					};
+				})(),
+				printErr: function(text) {
+					if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+					if (0) { // XXX disabled for safety typeof dump == 'function') {
+						dump(text + '\n'); // fast, straight to the real console
+					} else {
+						console.error(text);
+					}
+				},
+				canvas: (function() {
+					var canvas = document.getElementById('canvas');
+					// As a default initial behavior, pop up an alert when webgl context is lost. To make your
+					// application robust, you may want to override this behavior before shipping!
+					// See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+					canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
+					return canvas;
+				})(),
+				setStatus: function(text) {
+
+				},
+				totalDependencies: 0,
+				monitorRunDependencies: function(left) {
+					this.totalDependencies = Math.max(this.totalDependencies, left);
+				}
+			};
+
+		</script>
+		<script async type="text/javascript" src="index.js"></script>
+	</body>
+</html>
