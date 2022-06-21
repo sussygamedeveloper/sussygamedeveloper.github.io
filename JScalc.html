@@ -1,0 +1,14 @@
+<HTML>
+  <body>
+    <head>Reload After Use!</head>
+    <div id="divMsg"></div>
+  </body>
+  <script>
+    alert('This Is A Calculator, It Does "Value1 + Value2".');
+    let valueOne = prompt("Value Of First Number");
+    let valueTwo = prompt("Value Of Second Number");
+    let Answer = Number(valueOne) + Number(valueTwo);
+    alert(Answer);
+    document.getElementById("divMsg").innerHTML = "Answer: " + Answer;
+  </script>
+</HTML>
